@@ -1,12 +1,12 @@
 <?php 
 
-class HeadwayShortcodesBlock extends HeadwayBlockAPI {
+class PadmaShortcodesBlock extends PadmaBlockAPI {
 
     public $id = 'shortcodes-block';
     
     public $name = 'Shortcode Generator';
 
-    public $options_class = 'HeadwayShortcodesBlockOptions';
+    public $options_class = 'PadmaShortcodesBlockOptions';
     
 			
 		function setup_elements() {
@@ -658,8 +658,8 @@ $this->register_block_element(array(
 	}
 
 		function content($block) {
-			$shortcodeproduct = parent::get_setting($block, 'shortcode-product-type', ' ');
-			$wcshortcode = parent::get_setting($block, 'wc-shortcode-type', ' ');
+			$shortcodeproduct 	= parent::get_setting($block, 'shortcode-product-type', ' ');
+			$wcshortcode 		= parent::get_setting($block, 'wc-shortcode-type', ' ');
 			$wcproduct = parent::get_setting($block, 'wc-product-count', '12');
 			$wccolumn = parent::get_setting($block, 'wc-column-count', '4');
 			$wccategory = parent::get_setting($block, 'wc-category', ' ');
@@ -672,8 +672,8 @@ $this->register_block_element(array(
 			$gfajax = parent::get_setting($block, 'gravityform-ajax', false);
 			$priceshortcode = parent::get_setting($block, 'price-shortcode', 'none');
 			        		
-			$block_width = HeadwayBlocksData::get_block_width($block);
-			$block_height = HeadwayBlocksData::get_block_height($block);
+			$block_width = PadmaBlocksData::get_block_width($block);
+			$block_height = PadmaBlocksData::get_block_height($block);
 			
 			$converted_title = ($gftitle) ? 'true' : 'false';
 			$converted_desc = ($gfdescription) ? 'true' : 'false';

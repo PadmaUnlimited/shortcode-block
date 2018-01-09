@@ -1,6 +1,6 @@
 <?php
 
-class HeadwayShortcodesBlockOptions extends HeadwayBlockOptionsAPI {
+class PadmaShortcodesBlockOptions extends PadmaBlockOptionsAPI {
 
 public $tabs = array(
 'content-tab' => 'Content',
