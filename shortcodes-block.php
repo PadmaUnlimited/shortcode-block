@@ -4,7 +4,7 @@ Plugin Name: Padma Shortcodes Block
 Plugin URI: http://plasma.cr/
 Description: Padma Shortcode block, based on Shortcode block for Headway 1.0.0.2
 Version: 1.0.0
-Author: Plasma
+Author: Plasma Soluciones
 Author URI: http://www.plasma.cr
 License: GNU GPL v2
 */
