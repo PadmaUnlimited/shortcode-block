@@ -11,8 +11,6 @@ License: GNU GPL v2
 
 define('SHORTCODES_BLOCK_VERSION', '1.0.0');
 
-/*require_once('wp-updates-plugin.php');
-new WPUpdatesPluginUpdater_970( 'http://wp-updates.com/api/2/plugin', plugin_basename(__FILE__));*/
 
 add_action('after_setup_theme', 'register_shortcodes_block');
 function register_shortcodes_block() {
