@@ -701,5 +701,5 @@ class PadmaShortcodesBlock extends PadmaBlockAPI {
 		echo '<p>Please check your settings</p>';
 		}
 	}
-
+	
 }

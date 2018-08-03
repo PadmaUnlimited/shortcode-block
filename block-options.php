@@ -229,7 +229,7 @@ class PadmaShortcodesBlockOptions extends PadmaBlockOptionsAPI {
 	);
 
 
-	function modify_arguments(){
+	function modify_arguments($args = false){
 		
 		$wcatTerms 	= get_terms('product_cat',array('hide_empty'=>false));
 		$options 	= array( 'none' => 'Choose Your Category');
