@@ -1,21 +1,23 @@
 <?php
 /*
 Plugin Name: Padma Shortcodes Block
-Plugin URI: http://plasma.cr/
+Plugin URI: https://www.padmaunlimited.com/plugins/padma-shortcodes-block
 Description: Padma Shortcode block, based on Shortcode block for Headway 1.0.0.2
-Version: 1.0.0
-Author: Plasma Soluciones
-Author URI: http://www.plasma.cr
+Version: 1.0.1
+Author: Padma Unlimited
+Author URI: https://www.padmaunlimited.com/
 License: GNU GPL v2
 */
 
-define('SHORTCODES_BLOCK_VERSION', '1.0.0');
+define('SHORTCODES_BLOCK_VERSION', '1.0.1');
 
 
 add_action('after_setup_theme', 'register_shortcodes_block');
 function register_shortcodes_block() {
+
     if ( !class_exists('Padma') )
 		return;
+
 	require_once 'block.php';
 	require_once 'block-options.php';
 	
