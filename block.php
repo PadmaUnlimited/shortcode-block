@@ -5,7 +5,7 @@ class PadmaShortcodesBlock extends PadmaBlockAPI {
     public $id 				= 'shortcode-block';    
     public $name 			= 'Shortcode Generator';
     public $options_class 	= 'PadmaShortcodeBlockOptions';
-    public $categories 		= array('content','woocommerce','Contact Form 7','Gravity Forms');
+    public $categories 		= array('content','woocommerce','form');
     
 			
 	function setup_elements() {
