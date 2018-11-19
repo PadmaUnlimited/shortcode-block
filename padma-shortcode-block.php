@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Padma Shortcode Block
-Plugin URI: https://www.padmaunlimited.com/plugins/shortcodes-block
+Plugin URI: https://www.padmaunlimited.com/plugins/shortcode-block
 Description: Padma Shortcode block, based on Shortcode block for Headway 1.0.0.2
-Version: 1.0.4
+Version: 1.0.6
 Author: Padma Unlimited
 Author URI: https://www.padmaunlimited.com/
 License: GNU GPL v2
@@ -12,8 +12,8 @@ License: GNU GPL v2
 define('SHORTCODES_BLOCK_VERSION', '1.0.1');
 
 
-add_action('after_setup_theme', 'register_shortcodes_block');
-function register_shortcodes_block() {
+add_action('after_setup_theme', 'register_shortcode_block');
+function register_shortcode_block() {
 
     if ( !class_exists('Padma') )
 		return;

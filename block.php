@@ -2,9 +2,10 @@
 
 class PadmaShortcodesBlock extends PadmaBlockAPI {
 
-    public $id = 'shortcodes-block';    
-    public $name = 'Shortcode Generator';
-    public $options_class = 'PadmaShortcodesBlockOptions';
+    public $id 				= 'shortcode-block';    
+    public $name 			= 'Shortcode Generator';
+    public $options_class 	= 'PadmaShortcodeBlockOptions';
+    public $categories 		= array('content','woocommerce','Contact Form 7','Gravity Forms');
     
 			
 	function setup_elements() {
@@ -649,56 +650,66 @@ class PadmaShortcodesBlock extends PadmaBlockAPI {
 	}
 
 	function content($block) {
+
+		debug($block);
 		
 		$shortcodeproduct 	= parent::get_setting($block, 'shortcode-product-type', ' ');
 		$wcshortcode 		= parent::get_setting($block, 'wc-shortcode-type', ' ');
-		$wcproduct = parent::get_setting($block, 'wc-product-count', '12');
-		$wccolumn = parent::get_setting($block, 'wc-column-count', '4');
-		$wccategory = parent::get_setting($block, 'wc-category', ' ');
-		$wcorderby = parent::get_setting($block, 'wc-order-by', 'menu_order');
-		$wcorder = parent::get_setting($block, 'wc-order', 'asc');
-		$gfshortcode = parent::get_setting($block, 'gravityform-shortcode', 'none');
-		$gftitle = parent::get_setting($block, 'gravityform-title', true);
-		$gfdescription = parent::get_setting($block, 'gravityform-description', true);
-		$gfdescription = parent::get_setting($block, 'gravityform-description', true);
-		$gfajax = parent::get_setting($block, 'gravityform-ajax', false);
-		$priceshortcode = parent::get_setting($block, 'price-shortcode', 'none');
+		$wcproduct 			= parent::get_setting($block, 'wc-product-count', '12');
+		$wccolumn 			= parent::get_setting($block, 'wc-column-count', '4');
+		$wccategory 		= parent::get_setting($block, 'wc-category', ' ');
+		$wcorderby 			= parent::get_setting($block, 'wc-order-by', 'menu_order');
+		$wcorder 			= parent::get_setting($block, 'wc-order', 'asc');
+		$gfshortcode 		= parent::get_setting($block, 'gravityform-shortcode', 'none');
+		$gftitle 			= parent::get_setting($block, 'gravityform-title', true);
+		$gfdescription 		= parent::get_setting($block, 'gravityform-description', true);
+		$gfdescription 		= parent::get_setting($block, 'gravityform-description', true);
+		$gfajax 			= parent::get_setting($block, 'gravityform-ajax', false);
+		$priceshortcode 	= parent::get_setting($block, 'price-shortcode', 'none');
 		        		
-		$block_width = PadmaBlocksData::get_block_width($block);
-		$block_height = PadmaBlocksData::get_block_height($block);
+		$block_width 		= PadmaBlocksData::get_block_width($block);
+		$block_height 		= PadmaBlocksData::get_block_height($block);
 		
-		$converted_title = ($gftitle) ? 'true' : 'false';
-		$converted_desc = ($gfdescription) ? 'true' : 'false';
-		$converted_ajax = ($gfajax) ? 'true' : 'false';
+		$converted_title 	= ($gftitle) ? 'true' : 'false';
+		$converted_desc 	= ($gfdescription) ? 'true' : 'false';
+		$converted_ajax 	= ($gfajax) ? 'true' : 'false';
 		
 				
-		if ($shortcodeproduct == 'woo'){
-			if ($wcshortcode == 'none') {
-			echo '<p>Please check your settings</p>';
-		} else {
-		echo do_shortcode( '['. $wcshortcode .' per_page="'. $wcproduct .'" columns="'. $wccolumn .'" category="'. $wccategory .'" orderby="'. $wcorderby .'" order="'. $wcorder .'"]' );
-		}
-		} else if ($shortcodeproduct == 'cf7') {
-			 $cf7shortcode = parent::get_setting($block, 'contactform7-shortcode', '');
-			if ( defined('WPCF7_REQUIRED_WP_VERSION') )  {
-			if ( $cf7shortcode == null ) {
-			echo '<h2 style="color:red;font-weight:700;text-transform:uppercase;border:solid 1px red;padding:5px 10px;background-color:pink;">You need to enter your forms name into the block</h2>';
-		} else {
-			echo do_shortcode( '[contact-form-7 title="'. $cf7shortcode .' "]' );
-		}
-		} else {
-			echo '<h2 style="color:red;font-weight:700;text-transform:uppercase;border:solid 1px red;padding:5px 10px;background-color:pink;">You need to have the Contact Form 7 Plugin installed and activated</h2>'; 
-		}
-		} else if ($shortcodeproduct == 'gravity') {
+		if($shortcodeproduct == 'woo'){
+			if($wcshortcode == 'none'){
+				echo '<p>Please check your settings</p>';
+			}else{
+				echo do_shortcode( '['. $wcshortcode .' per_page="'. $wcproduct .'" columns="'. $wccolumn .'" category="'. $wccategory .'" orderby="'. $wcorderby .'" order="'. $wcorder .'"]' );
+			}
+		}elseif($shortcodeproduct == 'cf7'){
+			
+			$cf7shortcode = parent::get_setting($block, 'contactform7-shortcode', '');
+			
+			if( defined('WPCF7_REQUIRED_WP_VERSION') ){
+				
+				if( $cf7shortcode == null ) {
+					echo '<h2 style="color:red;font-weight:700;text-transform:uppercase;border:solid 1px red;padding:5px 10px;background-color:pink;">You need to enter your forms name into the block</h2>';
+				}else{
+					echo do_shortcode( '[contact-form-7 title="'. $cf7shortcode .' "]' );
+				}
+
+			}else{
+				
+				echo '<h2 style="color:red;font-weight:700;text-transform:uppercase;border:solid 1px red;padding:5px 10px;background-color:pink;">You need to have the Contact Form 7 Plugin installed and activated</h2>'; 
+			}
+		
+		}elseif($shortcodeproduct == 'gravity'){
+			
 			echo do_shortcode( '[gravityform id='.$gfshortcode.' title='.$converted_title.' description='.$converted_desc.' ajax='.$converted_ajax.']');
 			
-		} else if ($shortcodeproduct == 'price') {
+		}elseif($shortcodeproduct == 'price') {
+
 			echo do_shortcode( '[rpt name="'.$priceshortcode.'"]');
 			
-		} else {
+		}else{
 			
+			echo '<p>Please check your settings</p>';
 		
-		echo '<p>Please check your settings</p>';
 		}
 	}
 	

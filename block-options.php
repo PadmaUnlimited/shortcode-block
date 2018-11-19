@@ -1,6 +1,6 @@
 <?php
 
-class PadmaShortcodesBlockOptions extends PadmaBlockOptionsAPI {
+class PadmaShortcodeBlockOptions extends PadmaBlockOptionsAPI {
 
 	public $tabs = array(
 		'content-tab' 	=> 'Content',
