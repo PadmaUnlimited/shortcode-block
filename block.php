@@ -650,9 +650,7 @@ class PadmaShortcodesBlock extends PadmaBlockAPI {
 	}
 
 	function content($block) {
-
-		debug($block);
-		
+	
 		$shortcodeproduct 	= parent::get_setting($block, 'shortcode-product-type', ' ');
 		$wcshortcode 		= parent::get_setting($block, 'wc-shortcode-type', ' ');
 		$wcproduct 			= parent::get_setting($block, 'wc-product-count', '12');
