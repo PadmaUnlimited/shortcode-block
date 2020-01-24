@@ -3,7 +3,7 @@
 Plugin Name: Padma Shortcode Block
 Plugin URI: https://www.padmaunlimited.com/plugins/shortcode-block
 Description: Padma Shortcode block, based on Shortcode block for Headway 1.0.0.2
-Version: 1.0.12
+Version: 1.0.13
 Author: Padma Unlimited
 Author URI: https://www.padmaunlimited.com/
 License: GNU GPL v2
